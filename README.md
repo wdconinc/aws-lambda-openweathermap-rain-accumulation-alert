@@ -1,5 +1,24 @@
 # AWS Lambda OpenWeatherMap Rain Accumulation Forecast and Alert
 
+## Example output
+Email with the following content:
+```
+At 2019-02-25 00:00:00: rain = 0.00 mm, accum. 0.00 mm (broken clouds)
+At 2019-02-25 03:00:00: rain = 0.00 mm, accum. 0.00 mm (clear sky)
+At 2019-02-25 06:00:00: rain = 0.00 mm, accum. 0.00 mm (clear sky)
+At 2019-02-25 09:00:00: rain = 0.00 mm, accum. 0.00 mm (clear sky)
+At 2019-02-25 12:00:00: rain = 0.00 mm, accum. 0.00 mm (clear sky)
+At 2019-02-25 15:00:00: rain = 0.00 mm, accum. 0.00 mm (clear sky)
+At 2019-02-25 18:00:00: rain = 0.00 mm, accum. 0.00 mm (clear sky)
+At 2019-02-25 21:00:00: rain = 0.00 mm, accum. 0.00 mm (clear sky)
+At 2019-02-26 00:00:00: rain = 0.00 mm, accum. 0.00 mm (clear sky)
+At 2019-02-26 03:00:00: rain = 0.00 mm, accum. 0.00 mm (clear sky)
+At 2019-02-26 06:00:00: rain = 0.00 mm, accum. 0.00 mm (clear sky)
+At 2019-02-26 09:00:00: rain = 0.00 mm, accum. 0.00 mm (clear sky)
+At 2019-02-26 12:00:00: rain = 0.00 mm, accum. 0.00 mm (clear sky)
+At 2019-02-26 15:00:00: rain = 0.00 mm, accum. 0.00 mm (clear sky)
+```
+
 ## Deployment
 
 This microservice requires an Amazon Web Services account and some knowledge of AWS and/or IAM. You will also need to have `aws-cli` installed to be able to use the associated publish.sh script.
