@@ -61,8 +61,11 @@ def lambda_handler(event = None, context = None):
 
       dt = x["dt_txt"]
 
-      if "3h" in x["rain"].keys():
-        rain = float(x["rain"]["3h"])
+      if "rain" in x.keys():
+        if "3h" in x["rain"].keys():
+          rain = float(x["rain"]["3h"])
+        else:
+          rain = 0
       else:
         rain = 0
 
