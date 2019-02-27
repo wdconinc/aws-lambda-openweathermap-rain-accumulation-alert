@@ -16,11 +16,15 @@ else
   exit 1
 fi
 
+echo "Installing dependencies"
+rm -f *.whl
+pip install --upgrade -t . matplotlib pytz
+
 echo "Removing old zip"
 rm -f archive.zip
 
 echo "Creating a new zip file"
-zip archive.zip * -r -x .git/\* \*.sh \*.md \*.zip
+zip archive.zip * -r -x .git/\* \*.sh \*.md \*.zip \*.png \*.whl
 
 echo "Uploading $lambda"
 aws lambda update-function-code --function-name $lambda --zip-file fileb://archive.zip --publish
