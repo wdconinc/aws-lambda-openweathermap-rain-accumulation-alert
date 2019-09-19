@@ -23,6 +23,13 @@ echo "Installing dependencies"
 rm -f *.whl
 mkdir -p package
 pip install --upgrade -t ./package/ matplotlib pytz
+rm -r package/*.dist-info package/__pycache__
+
+echo "Getting AWS Lambda AMI"
+mkdir -p lambda_build
+pushd lambda_build
+sudo docker run -v $(pwd):/outputs --rm -it amazonlinux:latest
+popd
 
 echo "Adding dependencies to zip file"
 pushd package
