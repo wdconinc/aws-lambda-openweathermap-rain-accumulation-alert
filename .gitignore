@@ -1,3 +1,6 @@
+# Dependencies
+package/
+
 # AWS package
 *.zip
 
