@@ -15,7 +15,7 @@ import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
 
 # handler method
-def lambda_handler(event = None, context = None, email = False):
+def lambda_handler(event = None, context = None, email = True):
 
   # Connect to AWS SSM Parameter Store
   ssm = boto3.client('ssm', 'us-east-1')
