@@ -16,18 +16,24 @@ else
   exit 1
 fi
 
+echo "Removing old zip"
+rm -f function.zip
+
 echo "Installing dependencies"
 rm -f *.whl
-pip install --upgrade -t . matplotlib pytz
+mkdir -p package
+pip install --upgrade -t ./package/ matplotlib pytz
 
-echo "Removing old zip"
-rm -f archive.zip
+echo "Adding dependencies to zip file"
+pushd package
+zip -r ../function.zip .
+popd
 
-echo "Creating a new zip file"
-zip archive.zip * -r -x .git/\* \*.sh \*.md \*.zip \*.png \*.whl
+echo "Creating a new zip file with dependencies"
+zip -g function.zip * -r -x .git/\* package/\* \*.sh \*.md \*.zip \*.png \*.whl
 
 echo "Uploading $lambda"
-aws lambda update-function-code --function-name $lambda --zip-file fileb://archive.zip --publish
+aws lambda update-function-code --function-name $lambda --zip-file fileb://function.zip --publish
 
 if [ $? -eq 0 ]; then
   echo "!! Upload successful !!"
