@@ -42,8 +42,8 @@ def lambda_handler(event = None, context = None, email = True):
   base_url = "http://api.openweathermap.org/data/2.5/forecast?"
 
   # Give city name
-  city_name = "Norfolk"
-  tzinfo = pytz.timezone('US/Eastern')
+  city_name = get_ssm_parameters("/GhentDogPark/Weather/City")
+  tzinfo = pytz.timezone(get_ssm_parameters("/GhentDogPark/Weather/TimeZone"))
 
   # complete_url variable to store complete url address
   complete_url = base_url + "appid=" + api_key + "&q=" + city_name
